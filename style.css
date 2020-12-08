@@ -56,11 +56,14 @@ div.progressbar:before
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    font-size: 105%;
 }
 body
 {
     background: #000;
-    min-height: 200vh;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 header
 {
@@ -104,7 +107,7 @@ header ul li
     position: relative;
     list-style: none;
 }
-header ul li a
+.navigacio
 {
     position: relative;
     margin: 0 50px;
@@ -112,7 +115,13 @@ header ul li a
     color: #fff;
     letter-spacing: 2px;
     font-weight: 500;
-    transition: 0.6s;
+    transition: 0.6s ease-in-out;
+}
+
+.navigacio:hover, .nev:hover
+{
+    font-style: italic;
+    color: rgb(199, 152, 21);
 }
 .banner
 {
@@ -125,9 +134,7 @@ header ul li a
     position: relative;
     background: url('pics/fo.jpg');
     background-attachment: fixed;
-    opacity: 0.6;
     background-size: cover;
-    z-index: 0;
 }
 #rolam
 {
@@ -135,30 +142,48 @@ header ul li a
     background: url('pics/about.jpeg');
     background-attachment: fixed;
     background-size: cover;
-    z-index: 0;
+}
+.cim
+{
     letter-spacing: 20px;
-    text-indent: -600px;
+    padding-left: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     font-size: 75px;
+    background-color: rgba(255,255,255,0.6);
+    outline: 10px inset rgb(199, 152, 21);
+    z-index: 0;
 }
 #rolamszoveg
 {
     background: #87CEFA;
+    padding: 100px;
 }
 #rolamszoveg img
 {
-    position: absolute;
-    right: 100px;
-    height: 50%;
+    display: inline;
+    filter: blur(5px);
+    min-width: 250px;
+    min-height: 333.3px;
+    max-width: 250px;
+    max-height: 333.3px;
+    transition: 0.5s ease-in-out;
+    margin: 100px;
+    z-index: 1;
+}
+#rolamszoveg img:hover
+{
+    display: inline;
+    filter: blur(0px);
+    transform: scale(1.5);
+    border-radius: 3px;
 }
 #rolamszoveg ul
 {
-    position: absolute;
-    left: 100px;
+    text-align: left;
 }
-#rolamszoveg ul li
+#magamrol
 {
     font-size: 500;
     color: #000;
@@ -171,14 +196,6 @@ header ul li a
     background: url('pics/services.jpeg');
     background-attachment: fixed;
     background-size: cover;
-    z-index: 0;
-    padding: 150px 0 0 0;
-    letter-spacing: 20px;
-    text-indent: 600px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 75px;
 }
 #szolgszoveg
 {
@@ -203,14 +220,6 @@ header ul li a
     background: url('pics/work.jpeg');
     background-attachment: fixed;
     background-size: cover;
-    z-index: 0;
-    padding: 0 0 250px 100px;
-    letter-spacing: 20px;
-    text-indent: 600px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #000;
-    font-size: 75px;
 }
 #munkaszoveg
 {
@@ -232,18 +241,14 @@ header ul li a
 #munkaszoveg ul li a
 {
     color: black;
-    border: 2px solid white;
     padding: 5px;
     border-radius: 50%;
-    text-decoration: none;
-    font-style: italic;
+    text-decoration: underline;
+    transition: 0.6s ease-in-out;
 }
 #munkaszoveg ul li a:hover
 {
-    color: white;
-    border: 2px solid black;
-    padding: 5px;
-    border-radius: 50%;
+    color: rgb(199, 152, 21);;
     text-decoration: none;
     font-style: italic;
 }
@@ -253,14 +258,6 @@ header ul li a
     background: url('pics/team.jpeg');
     background-attachment: fixed;
     background-size: cover;
-    z-index: 0;
-    padding: 600px 0 0 0;
-    letter-spacing: 20px;
-    text-indent: -800px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #000;
-    font-size: 75px;
 }
 #csapatszoveg
 {
@@ -285,13 +282,6 @@ header ul li a
     background: url('pics/elerh.jpg');
     background-size: cover;
     background-attachment: fixed;
-    z-index: 0;
-    letter-spacing: 20px;
-    text-indent: 600px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #000;
-    font-size: 75px;
 }
 #elerhszoveg
 {
@@ -309,6 +299,7 @@ header ul li a
     color: #000;
     letter-spacing: 2px;
     list-style: none;
+    padding-bottom: 10px;
 }
 #elerhszoveg ul li a
 {
@@ -327,11 +318,10 @@ header ul li a
     content: "";
     display: block;
     height: 3px;
-    border-radius: 100%;
     left: 100%;
     position: absolute;
     background: #000000;
-    transition: width 0.5s ease 0s, left 0.5s ease 0s;
+    transition: 0.5s ease 0s, left 0.5s ease 0s;
     width: 0;
   }
   #elerhszoveg ul li a:hover:after { 
@@ -372,7 +362,7 @@ footer
 }
 #logo
 {
-    transform: scale(0.4);
+    transform: scale(0.5);
 }
 footer .footerszov
 {
@@ -395,4 +385,66 @@ footer .footerszov
     width: 100%;
     height: 100%;
     scroll-snap-align: start;
+}
+
+@media (max-width: 1680px)
+{
+    ::-webkit-scrollbar
+    {
+    width: 1;
+    }
+    header
+    {
+        margin: 0;
+        padding: 10px 30px;
+    }
+    header.sticky
+    {
+        margin: 0;
+        padding: 5px 20px;
+    }
+    .nev
+    {
+        margin: 0;
+        padding-top: 5px;
+        display: inline-block;
+    }
+    header ul li
+    {
+        padding: 0;
+        margin: 0;
+    }
+    footer
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .footerszov
+    {
+        padding: 15px;
+        padding-left: 30px;
+    }
+    #logo
+    {
+        margin: 0;
+        padding: 15px;
+    }
+    .leiras
+    {
+        font-size: 250%;
+        line-height: 150%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 1280px)
+{
+    *
+    {
+    font-size: 100%;
+    }
+    .navigacio
+    {
+        margin: 0 20px;
+    }
 }
